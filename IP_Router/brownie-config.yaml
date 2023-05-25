@@ -1,0 +1,14 @@
+dependencies:
+ - uniswap/uniswap-v2-core@1.0.1
+ - uniswap/uniswap-lib@2.1.0
+compiler:
+ solc:
+  version: 0.6.6
+  remappings:
+   - "@uniswap/v2-core=uniswap/uniswap-v2-core@1.0.1"
+   - "@uniswap/lib=uniswap/uniswap-lib@2.1.0"
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+    
