@@ -1,0 +1,4 @@
+dotend : .env
+
+wallets:
+  from_key: ${PRIVATE_KEY}
