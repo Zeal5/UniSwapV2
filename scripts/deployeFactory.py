@@ -7,9 +7,7 @@ def deploye_factory():
     account = accounts[0]
     factory = UniswapV2Factory.deploy(owner_account, {"from": account} )
     init_hash = factory.INIT_CODE_HASH()
-    print(init_hash)
     setter = factory.feeToSetter()
-    print(setter)
     
 
     
