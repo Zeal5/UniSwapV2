@@ -1,5 +1,5 @@
 from brownie import accounts, config, Token1, Token2, WETH
-
+import json
 
 def deploye_factory():
     account = accounts[0]
@@ -7,9 +7,18 @@ def deploye_factory():
     t2 = Token2.deploy({"from": account} )
     weth = WETH.deploy({"from": account} )
 
-    with open('../token_data.txt', 'a') as f:
-        f.write(f"t1 {t1} \nt2 {t2}\n")
-        f.write(f"weth {weth}\n")
+    #approve router as spender here  //TODO get router address to approve
+    # t1.approve()
+
+    data = {
+        't1_address' : t1.address,
+        't2_address' : t2.address,
+        'weth_address': weth.address,
+        'from': account.address,
+    }
+
+    with open('../token_data.json', 'w') as f:
+        json.dump(data,fp=f,indent=4)
 
     
 
