@@ -1,8 +1,8 @@
-# Start Ganache
-# Open GNOME Terminal
-
+# Start Ganache in seperate GNOME Terminal
 gnome-terminal -- bash -c "ganache-cli; bash -i" & 
 sleep 7
+
+
 # Deploy Factory
 echo "Deploying factory" 
 cd ./IP_core

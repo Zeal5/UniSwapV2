@@ -1,21 +1,8 @@
 from brownie import accounts, Token1, Token2, WETH
 import json
-import os
-
 
 
 def approve():
-    #approve router as spender here  //TODO get router address to approve
-    # t1.approve()
-
-    # t1 = brownie.Contract.from_abi(
-    # t1_path = "build/contracts/Token1.json"
-    # with open(t1_path,'r') as f:
-    #     abi = json.load(f)['abi']
-    # print(abi)
-    # cwd = os.getcwd()
-    # parent_dir = os.path.dirname(cwd)
-    # print(parent_dir)
 
     with open('../token_data.json', 'r') as f:
         a = json.load(f)
