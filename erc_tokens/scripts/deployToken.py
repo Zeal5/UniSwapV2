@@ -7,9 +7,8 @@ def deploye_factory():
     t2 = Token2.deploy({"from": account} )
     weth = WETH.deploy({"from": account} )
 
-    #approve router as spender here  //TODO get router address to approve
-    # t1.approve()
 
+    #save data to a file
     data = {
         't1_address' : t1.address,
         't2_address' : t2.address,
@@ -17,8 +16,8 @@ def deploye_factory():
         'from': account.address,
     }
 
-    with open('../token_data.json', 'w') as f:
-        json.dump(data,fp=f,indent=4)
+    with open('../token_data.json', 'w') as td:
+        json.dump(data,fp=td,indent=4)
 
     
 

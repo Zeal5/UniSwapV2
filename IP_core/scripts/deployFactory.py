@@ -19,15 +19,6 @@ def deploye_factory():
     with open('../factory_data.json', 'w') as f:
         json.dump(data,fp=f,indent=4)
 
-    
-
-    
-
-
-    # Deploye a contract
-    # Import a user wallet
-    # private_key = config["wallets"]["from_key"]
-    # account = accounts.add(private_key)
 
 
 def main():

@@ -3,13 +3,21 @@ import json
 
 
 def deploye_factory():
-    _factory_address = "0x38EB1321ce58640d9Ac0f3F42326B255d1C859b9"
+    with open('../factory_data.json','r') as fd:
+        factory_data_dict = json.load(fd)
+        
+
+    _factory_address = factory_data_dict['factory_address']
+
     _WETH_address = "0x06F27e7506D50018a1f35D732D94cdF7D5959205"
     account = accounts[0]
-    router = UniswapV2Router02.deploy(_factory_address, _WETH_address, {"from": account} )
 
-    data = {
-        'router_address' : router.address,
+
+    # router = UniswapV2Router02.deploy(_factory_address, _WETH_address, {"from": account} )
+
+    # data = {
+    #     'router_address' : router.address,
+    # }
 
     
 def main():
