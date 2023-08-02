@@ -13,15 +13,22 @@ def approve():
     token1 = Token1.at(t1_address)
     token2 = Token2.at(t2_address)
     weth   = WETH.at(weth_address)
+
+    # Get weth for eth in account
+    weth.deposit({"value": 5 * (10**18),'from':accounts[0]})
+
+
+
+        
     # approve factory
-    with open('../factory_data.json','r') as fd:
+    with open('../router_data.json','r') as fd:
         factory_data = json.load(fd)
-        factory_address = factory_data['factory_address']
+        router_address = factory_data['router_address']
 
 
-    token1.approve(factory_address,100000000,{'from':accounts[0]})
-    token2.approve(factory_address,100000000,{'from':accounts[0]})
-    weth.approve(factory_address,5,{'from':accounts[0]})
+    token1.approve( router_address,100000000,{'from':accounts[0]})
+    token2.approve(router_address ,100000000,{'from':accounts[0]})
+    weth.approve(router_address ,5,{'from':accounts[0]})
 
 
 
