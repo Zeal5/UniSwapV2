@@ -1,0 +1,32 @@
+set router_address [lindex $argv 0]
+set t1_address [lindex $argv 1]
+set t2_address [lindex $argv 2]
+
+puts "router_addressfrom exp: $router_address"
+puts "t1_addressfrom exp: $t1_address"
+expect "$ "
+send "pwd\r"
+
+set router_command "router = Contract.from_abi('router', '$router_address', UniswapV2Router02.abi,owner=accounts\[0\])"
+set t1_command "t1 = Contract.from_abi('t1', '$t1_address', ERC20.abi,owner=accounts\[0\])"
+set t2_command "t2 = Contract.from_abi('t2', '$t2_address', ERC20.abi,owner=accounts\[0\])"
+set t1_allowance "t1.allowance(accounts\[0\],router.address)"
+set t2_allowance "t2.allowance(accounts\[0\],router.address)"
+
+spawn brownie console
+
+expect ">>> "
+send "from brownie import accounts, Contract\r"
+expect ">>> "
+send "$router_command\r"
+expect ">>> "
+send "$t1_command\r"
+expect ">>> "
+send "$t2_command\r"
+expect ">>> "
+send "$t1_allowance\r"
+expect ">>> "
+send "$t2_allowance\r"
+
+
+interact
